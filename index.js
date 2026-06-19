@@ -62,7 +62,13 @@ app.get("/kakao", (req, res) => {
 ========================= */
 app.post("/kakao", (req, res) => {
 
-    const msg = req.body.userRequest?.utterance || "";
+    console.log("BODY:", req.body);
+
+    const msg =
+        req.body?.userRequest?.utterance ||
+        req.body?.text ||
+        req.query?.text ||
+        "";
 
     // 1) 기본 자동응답
     if (msg.includes("안녕")) {
@@ -89,7 +95,7 @@ app.post("/kakao", (req, res) => {
     }
 
     // 3) 기본 응답
-    res.json({
+    return res.json({
         version: "2.0",
         template: {
             outputs: [
@@ -98,7 +104,6 @@ app.post("/kakao", (req, res) => {
         }
     });
 });
-
 /* =========================
    서버 실행
 ========================= */
