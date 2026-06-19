@@ -53,29 +53,12 @@ app.get("/ping", (req, res) => {
 app.get("/kakao", (req, res) => {
     res.json({
         ok: true,
-app.use(express.json());
-
-app.post("/kakao", (req, res) => {
-    try {
-        const text = req.body?.text || "";
-
-        res.json({
-            ok: true,
-            message: "받은 메시지: " + text
-        });
-
-    } catch (e) {
-        res.status(500).json({
-            ok: false,
-            error: e.toString()
-        });
-    }
-});        message: "카카오 연결 성공"
+        message: "카카오 연결 성공"
     });
 });
 
 /* =========================
-   4. 카카오 연결 (여기 중요)
+   4. 카카오 연결 (AI 응답)
 ========================= */
 app.post("/kakao", (req, res) => {
 
