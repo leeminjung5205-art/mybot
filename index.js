@@ -50,6 +50,13 @@ app.get("/ping", (req, res) => {
     res.json({ ok: true });
 });
 
+app.get("/kakao", (req, res) => {
+    res.json({
+        ok: true,
+        message: "카카오 연결 성공"
+    });
+});
+
 /* =========================
    4. 카카오 연결 (여기 중요)
 ========================= */
