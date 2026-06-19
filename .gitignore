@@ -1,0 +1,4 @@
+node_modules/
+ngrok*
+*.tgz
+.DS_Store
