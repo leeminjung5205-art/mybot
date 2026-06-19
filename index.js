@@ -57,6 +57,17 @@ app.get("/kakao", (req, res) => {
     });
 });
 
+app.use(express.json());
+
+app.post("/kakao", (req, res) => {
+    const text = req.body.text;
+
+    res.json({
+        ok: true,
+        message: "받은 메시지: " + text
+    });
+});
+
 /* =========================
    4. 카카오 연결 (여기 중요)
 ========================= */
